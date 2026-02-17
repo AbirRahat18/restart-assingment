@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="restart.css">
+<title>SwiftCart</title>
+</head>
+<body>
+
+<nav>
+<div class="logo">SwiftCart</div>
+<ul class="menu">
+<li><a href="#">Home</a></li>
+<li><a href="#">Products</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+<div style="display:flex;gap:15px;align-items:center">
+<div class="cart" onclick="openCart()">🛒
+<span class="cart-count" id="cartCount">0</span>
+</div>
+<div class="hamburger">☰</div>
+</div>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Best Collection For You</h1>
+<p>Explore quality products</p>
+<button onclick="scrollToProducts()">Shop Now</button>
+</div>
+</section>
+
+<section class="section">
+<h2>Why Choose Us</h2>
+<div class="features">
+<div class="feature">
+<div style="font-size:35px">🚚</div>
+<h4>Fast Delivery</h4>
+<p>Super fast & reliable shipping service.</p>
+</div>
+<div class="feature">
+<div style="font-size:35px">🔒</div>
+<h4>Secure Payment</h4>
+<p>100% safe & encrypted transactions.</p>
+</div>
+<div class="feature">
+<div style="font-size:35px">📞</div>
+<h4>24/7 Support</h4>
+<p>We are always ready to help you.</p>
+</div>
+<div class="feature">
+<div style="font-size:35px">⭐</div>
+<h4>Top Rated Products</h4>
+<p>Best quality products with high ratings.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Trending Products</h2>
+<div class="products" id="trending"></div>
+</section>
+
+<div class="categories" id="categories"></div>
+<div class="spinner" id="spinner">Loading...</div>
+<div class="products" id="products"></div>
+
+<div class="modal" id="modal">
+<div class="modal-box" id="modalBox"></div>
+</div>
+
+<div class="cart-modal" id="cartModal">
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<h4>Total: $<span id="totalPrice">0</span></h4>
+<button onclick="closeCart()">Close</button>
+</div>
+
+
+<footer>
+<div class="footer-container">
+  <div>
+    <h3 style="color:rgb(79,57,246);margin-bottom:10px; font-size: 25px;">Swift Craft</h3>
+    <p>We deliver modern and premium quality products <br> designed for everyday lifestyle.</p>
+    
+  </div>
+
+  <div>
+    <h4 style="font-size: 20px;color: rgb(79, 57, 246);">Quick Links</h4>
+    <p>Home</p>
+    <p>Products</p>
+    <p>About</p>
+    <p>Contact</p>
+  </div>
+
+  <div>
+    <h4 style="font-size: 20px;color: rgb(79, 57, 246);">Support</h4>
+    <p>FAQ</p>
+    <p>Shipping</p>
+    <p>Returns</p>
+    <p>Privacy Policy</p>
+  </div>
+
+  <div>
+    <h4 style="font-size: 25px; color: rgb(79, 57, 246);">Subscribe to our Newsletter</h4>
+    <p>Get updates and offers directly in your inbox.</p>
+    <div style="display:flex;gap:10px;margin-top:10px;align-items:center;">
+      <input type="email" placeholder="Enter email" style="border-radius: 8px; padding: 10px; flex:1;">
+      <button style="padding:12px 20px; font-size:16px; border-radius:8px; background:rgb(79,57,246); color:#fff; cursor:pointer;">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<hr style="margin:30px 0;border-color:#282626;">
+
+<!-- Footer bottom: left-right -->
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+  <p>© 2026 All rights reserved.</p>
+  <div style="display:flex;gap:15px;">
+    <!-- Facebook -->
+    <a href="https://facebook.com" target="_blank" style="color:#fff; font-size:20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12c0 5.01 3.657 9.166 8.438 9.878v-6.988h-2.54v-2.89h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.988C18.343 21.166 22 17.01 22 12z"/>
+      </svg>
+    </a>
+    <!-- Instagram -->
+    <a href="https://instagram.com" target="_blank" style="color:#fff; font-size:20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.316.975.975 1.254 2.242 1.316 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.341 2.633-1.316 3.608-.975.975-2.242 1.254-3.608 1.316-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.341-3.608-1.316-.975-.975-1.254-2.242-1.316-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.341-2.633 1.316-3.608C4.524 2.503 5.791 2.224 7.157 2.163 8.423 2.105 8.803 2.163 12 2.163zm0-2.163C8.756 0 8.333.013 7.053.072 5.775.13 4.635.38 3.678 1.336c-.956.956-1.206 2.096-1.264 3.374C2.013 6.667 2 7.09 2 12c0 4.91.013 5.333.072 6.613.058 1.278.308 2.418 1.264 3.374.956.956 2.096 1.206 3.374 1.264 1.28.059 1.703.072 6.613.072s5.333-.013 6.613-.072c1.278-.058 2.418-.308 3.374-1.264.956-.956 1.206-2.096 1.264-3.374.059-1.28.072-1.703.072-6.613s-.013-5.333-.072-6.613c-.058-1.278-.308-2.418-1.264-3.374-.956-.956-2.096-1.206-3.374-1.264C17.333.013 16.91 0 12 0z"/>
+        <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+        <circle cx="18.406" cy="5.594" r="1.44"/>
+      </svg>
+    </a>
+    <!-- Twitter -->
+    <a href="https://twitter.com" target="_blank" style="color:#fff; font-size:20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.38 4.482 13.944 13.944 0 0 1-10.125-5.13 4.916 4.916 0 0 0 1.523 6.573 4.897 4.897 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 0 1-2.224.084 4.918 4.918 0 0 0 4.59 3.417A9.867 9.867 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.056 0 14.01-7.506 14.01-14.01 0-.213-.005-.425-.014-.636A10.012 10.012 0 0 0 24 4.557z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+</footer>
+
+<script src="restart.js"></script>
+</body>
+</html>

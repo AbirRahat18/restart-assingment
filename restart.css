@@ -1,0 +1,236 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f4f4f8}
+:root{--primary:rgb(79,57,246)}
+
+nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 40px;background:#fff;position:sticky;top:0;z-index:1000
+}
+.logo{font-size:22px;font-weight:bold;color:var(--primary)}
+.menu{display:flex;gap:25px;list-style:none}
+.menu a{text-decoration:none;color:#000;font-size:15px}
+.cart{position:relative;cursor:pointer}
+.cart-count{
+position:absolute;top:-8px;right:-10px;
+background:var(--primary);color:#fff;
+font-size:12px;padding:3px 7px;border-radius:50%
+}
+.hamburger{display:none;font-size:22px;cursor:pointer}
+
+.hero{
+height:60vh;
+background:url("banner-image.png") center/cover no-repeat;
+display:flex;justify-content:center;align-items:center;text-align:center;color:#fff
+}
+.hero h1{font-size:40px;margin-bottom:10px}
+.hero button{
+padding:10px 22px;border:none;background:var(--primary);
+color:#fff;border-radius:6px;cursor:pointer
+}
+
+.section{padding:60px 40px;text-align:center}
+.section h2{margin-bottom:30px}
+
+.features{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
+}
+.feature{
+background:#fff;padding:25px;border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.05)
+}
+.feature h4{color:var(--primary);margin:10px 0}
+
+.categories{
+padding:20px;display:flex;gap:15px;
+flex-wrap:wrap;justify-content:center
+}
+.categories button{
+padding:8px 18px;border:1px solid var(--primary);
+background:#fff;border-radius:20px;cursor:pointer
+}
+.categories .active{background:var(--primary);color:#fff}
+
+.products{
+padding:20px 40px;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px
+}
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  text-align:left;
+  position:relative;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  height:180px;
+  width:100%;
+  object-fit:contain;
+  margin-bottom:12px;
+}
+
+.top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:500;
+}
+
+.price{
+  font-weight:bold;
+  font-size:15px;
+}
+
+.card h4{
+  font-size:16px;
+  margin:8px 0;
+  min-height:45px;
+}
+
+.card .rating{
+  font-size:13px;
+  margin-bottom:10px;
+  color:#555;
+}
+
+.btn-group{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.card button{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.details-btn{
+  background:#000;
+  color:#fff;
+}
+
+.add-btn{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* Cart modal upgrade */
+.cart-modal{
+  position:fixed;
+  right:0;
+  top:0;
+  height:100%;
+  width:320px;
+  background:#fff;
+  box-shadow:-2px 0 15px rgba(0,0,0,0.1);
+  padding:20px;
+  overflow:auto;
+  display:none;
+  z-index:1100;
+}
+
+.cart-item{
+  margin-bottom:15px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cart-item p{
+  margin:0;
+}
+
+.cart-item button{
+  background:red;
+  color:#fff;
+  border:none;
+  padding:5px 10px;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+/* Footer social icons */
+.footer-social{
+  display:flex;
+  gap:15px;
+  margin-top:10px;
+}
+
+.footer-social a{
+  color:#fff;
+  font-size:20px;
+  transition:0.2s;
+}
+
+.footer-social a:hover{
+  color:var(--primary);
+}
+
+.spinner{
+display:none;text-align:center;padding:20px;font-size:18px
+}
+
+footer{
+  background:rgb(14, 8, 56);
+  color:#fff;
+  padding:40px;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+}
+
+.footer-container h4{
+  margin-bottom:10px;
+}
+
+.footer-container input{
+  padding:8px;
+  width:100%;
+  border:none;
+  margin-bottom:10px;
+}
+
+.footer-container button{
+  padding:none;
+  border:none;
+  background:rgb(79, 57, 246);
+  color:#fff;
+  cursor:pointer;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:20px;
+  font-size:13px;
+  opacity:0.7;
+}
+@media(max-width:768px){
+.menu{display:none}
+.hamburger{display:block}
+}
